@@ -5,79 +5,31 @@
   <title>Concept Soluções - SPA</title>
   <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }
     body { min-height: 100vh; }
-    .sidebar {
-      width: 250px; background-color: #284358; color: white;
-      padding: 20px; box-sizing: border-box; overflow-y: auto;
-      position: fixed; height: 100vh; top: 0; left: 0;
-      transition: transform 0.3s ease; z-index: 999;
-    }
-    .content {
-      margin-left: 250px; padding: 40px; background-color: #d8d5d5;
-      box-sizing: border-box; min-height: 100vh; transition: margin-left 0.3s ease;
-      overflow-y: auto; position: relative;
-    }
-    .welcome-screen {
-      position: relative; background-color: #d8d5d5;
-      min-height: 100vh; padding-top: 100px; box-sizing: border-box; z-index: 1;
-    }
-    .welcome-screen::before {
-      content: ""; position: absolute; inset: 0;
-      background: url("logo2.png") center center no-repeat;
-      background-size: contain; opacity: 0.08; z-index: 0;
-    }
+    .sidebar { width: 250px; background-color: #284358; color: white; padding: 20px; box-sizing: border-box; overflow-y: auto; position: fixed; height: 100vh; top: 0; left: 0; transition: transform 0.3s ease; z-index: 999; }
+    .content { margin-left: 250px; padding: 40px; background-color: #d8d5d5; box-sizing: border-box; min-height: 100vh; transition: margin-left 0.3s ease; overflow-y: auto; position: relative; }
+    .welcome-screen { position: relative; background-color: #d8d5d5; min-height: 100vh; padding-top: 100px; box-sizing: border-box; z-index: 1; }
+    .welcome-screen::before { content: ""; position: absolute; inset: 0; background: url("logo2.png") center center no-repeat; background-size: contain; opacity: 0.08; z-index: 0; }
     .welcome-screen > * { position: relative; z-index: 1; }
     .menu-hidden .sidebar { transform: translateX(-100%); }
     .menu-hidden .content { margin-left: 0; }
-    .toggle-button {
-      position: fixed; top: 10px; left: 10px; background-color: orange;
-      border: none; color: white; font-size: 24px; padding: 5px 10px;
-      border-radius: 5px; cursor: pointer; z-index: 1000;
-    }
-    .logo { display: flex; flex-direction: column; align-items: flex-start;
-      padding-left: 20px; margin-top: 60px; }
+    .toggle-button { position: fixed; top: 10px; left: 10px; background-color: orange; border: none; color: white; font-size: 24px; padding: 5px 10px; border-radius: 5px; cursor: pointer; z-index: 1000; }
+    .logo { display: flex; flex-direction: column; align-items: flex-start; padding-left: 20px; margin-top: 60px; }
     .logo-img { width: 100%; max-width: 150px; margin-bottom: 5px; border: none !important; outline: none !important; box-shadow: none !important; }
-    input[type="text"] {
-      background-color: white; color: orange; border: none; border-radius: 5px;
-      padding: 6px 10px; width: 80%; margin-bottom: 10px; font-size: 16px;
-    }
-    #searchButton {
-      background-color: orange; color: white; border: none; border-radius: 5px;
-      padding: 6px 10px; cursor: pointer; margin-top: 0; width: 90%;
-    }
+    input[type="text"] { background-color: white; color: orange; border: none; border-radius: 5px; padding: 6px 10px; width: 80%; margin-bottom: 10px; font-size: 16px; }
+    #searchButton { background-color: orange; color: white; border: none; border-radius: 5px; padding: 6px 10px; cursor: pointer; margin-top: 0; width: 90%; }
     ul { list-style: none; padding-left: 0; margin: 0; }
     li { margin-bottom: 10px; }
-    a {
-      color: white; text-decoration: none; cursor: pointer; display: block;
-      padding: 5px 8px; border-radius: 4px; transition: background-color 0.3s;
-    }
+    a { color: white; text-decoration: none; cursor: pointer; display: block; padding: 5px 8px; border-radius: 4px; transition: background-color 0.3s; }
     a:hover { background-color: #1f364d; text-decoration: none; }
     .menu-category > a { cursor: default; padding: 0; margin-bottom: 8px; font-weight: bold; }
-    .menu-category.corporativo > a,
-    .menu-category.fiscal > a,
-    .menu-category.suprimentos > a,
-    .menu-category.automacao > a,
-    .menu-category.financeiro > a { color: #FFA500; }
+    .menu-category.corporativo > a, .menu-category.fiscal > a, .menu-category.suprimentos > a, .menu-category.automacao > a, .menu-category.financeiro > a { color: #FFA500; }
     .submenu { margin-left: 15px; margin-bottom: 15px; }
     h1, h2 { color: #003366; margin-top: 0; }
-    .destaque {
-      background-color: #e0f7fa; padding: 15px; border-left: 5px solid #00796b;
-      margin-bottom: 20px;
-    }
-    code {
-      background-color: #eee; padding: 2px 5px; border-radius: 3px;
-      font-family: monospace;
-    }
-    iframe {
-      border: none; display: block; margin: 30px auto 0 auto;
-      width: 100%; max-width: 800px; height: 450px;
-    }
+    .destaque { background-color: #e0f7fa; padding: 15px; border-left: 5px solid #00796b; margin-bottom: 20px; }
+    code { background-color: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+    iframe { border: none; display: block; margin: 30px auto 0 auto; width: 100%; max-width: 800px; height: 450px; }
     .menu-category.corporativo { margin-top: 40px; }
     .content h2 { color: orange; margin-top: 9px; }
   </style>
@@ -94,12 +46,7 @@
       <button type="submit" id="searchButton">🔍 Buscar</button>
     </form>
     <nav>
-      <ul id="menuList">
-        <li class="menu-category corporativo"><a>Corporativo</a></li>
-        <ul class="submenu">
-          <li><a href="#" data-page="contrato_de_credito">Contrato de Crédito</a></li>
-        </ul>
-      </ul>
+      <ul id="menuList"></ul>
     </nav>
   </div>
   <div class="content welcome-screen" id="content">
@@ -109,76 +56,7 @@
     <p>Utilize o menu lateral para navegar e encontrar as informações que você precisa.</p>
   </div>
 <script>
-const pages = {
-  contrato_de_credito: {
-    title: "Contrato de Crédito",
-    video: "_XVZm3-DtLw",
-    htmlContent: `
-      <p>O Contrato de Crédito é utilizado para clientes que possuem limite para abastecimento a prazo. Siga o passo a passo abaixo para realizar a inclusão:</p>
-      <div class="destaque">
-        <strong>1. Acessando o cadastro:</strong>
-        <ul>
-          <li>Navegue até <strong>Corporativo > Cadastro > Contrato de Crédito</strong>.</li>
-        </ul>
-      </div>
-      <div class="destaque">
-        <strong>2. Selecionando o cliente:</strong>
-        <ul>
-          <li>Na tela que se abrirá, clique no botão de busca.</li>
-          <li>No campo de busca, digite o código ou a denominação do cliente.</li>
-          <li>Selecione o cliente desejado e clique em <strong>OK</strong>.</li>
-        </ul>
-      </div>
-      <div class="destaque">
-        <strong>3. Preenchendo o contrato:</strong>
-        <ul>
-          <li>Preencha o campo <strong>Número</strong> (por padrão, utilize o código de cadastro do cliente).</li>
-          <li>Informe o <strong>Valor</strong> correspondente ao limite de crédito do cliente.</li>
-        </ul>
-      </div>
-      <div class="destaque">
-        <strong>4. Configurando o tipo de recebimento:</strong>
-        <ul>
-          <li>Na aba <strong>Tipo de Recebimento</strong>, é possível incluir mais de um tipo clicando no botão <strong>+</strong> no rodapé.</li>
-          <li>Em <strong>Percentual de Crédito</strong>, utilize sempre <strong>100%</strong>.</li>
-          <li>No campo <strong>Limite de Transação</strong>, utilize o padrão <strong>999999</strong>.</li>
-        </ul>
-      </div>
-      <div class="destaque">
-        <strong>5. Relatórios de acompanhamento:</strong>
-        <ul>
-          <li>Acesse <strong>Financeiro > Relatórios > Rotinas > Limites de Crédito e Saldos de Clientes em Aberto</strong>.</li>
-          <li>Visualize recebimentos, limite de crédito, saldo atual e total de vendas em aberto.</li>
-        </ul>
-      </div>
-      <p>Assista abaixo o vídeo tutorial para um melhor entendimento:</p>
-    `
-  }
-};
-const contentDiv = document.getElementById('content');
-const menuLinks = document.querySelectorAll('#menuList a[data-page]');
-function loadPage(pageKey) {
-  const page = pages[pageKey];
-  if (!page) return;
-  contentDiv.classList.remove('welcome-screen');
-  let html = `<h2>${page.title}</h2>`;
-  html += page.htmlContent;
-  if (page.video) {
-    html += `<iframe src="https://www.youtube.com/embed/${page.video.trim()}" allowfullscreen></iframe>`;
-  }
-  contentDiv.innerHTML = html;
-}
-menuLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const pageKey = link.getAttribute('data-page');
-    loadPage(pageKey);
-  });
-});
-const toggleButton = document.getElementById('menuToggle');
-toggleButton.addEventListener('click', () => {
-  document.body.classList.toggle('menu-hidden');
-});
+// AQUI ENTRARÁ O SCRIPT COMPLETO COM TODAS AS PÁGINAS (gerando em seguida)
 </script>
 </body>
 </html>
