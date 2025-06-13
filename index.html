@@ -181,8 +181,13 @@
     }
 
     .menu-category.corporativo > a,
-    .menu-category.fiscal > a {
-      color: #FFA500;
+.menu-category.fiscal > a,
+.menu-category.suprimentos > a,
+.menu-category.automacao > a,
+.menu-category.financeiro > a {
+  color: #FFA500;
+}
+
     }
 
     .submenu {
@@ -247,21 +252,71 @@
     </form>
 
     <nav>
-      <ul id="menuList">
-        <li class="menu-category corporativo"><a>Corporativo</a></li>
-        <ul class="submenu">
-          <li><a href="#" data-page="contrato">Contrato de Crédito</a></li>
-          <li><a href="#" data-page="cadastro_cliente">Cadastro de Cliente</a></li>
-          <li><a href="#" data-page="cadastro_colaborador">Cadastro de Colaborador</a></li>
-        </ul>
+  <ul id="menuList">
+    <!-- Corporativo -->
+    <li class="menu-category corporativo"><a>Corporativo</a></li>
+    <ul class="submenu">
+      <li><a href="#" data-page="classe_cliente">Classe de Cliente</a></li>
+      <li><a href="#" data-page="cadastro_cliente">Cadastro de Cliente</a></li>
+      <li><a href="#" data-page="cadastro_colaborador">Cadastro de Colaborador</a></li>
+      <li><a href="#" data-page="cadastro_pessoa">Cadastro de Pessoa</a></li>
+      <li><a href="#" data-page="ficha_eletronica_pessoa">Ficha Eletrônica da Pessoa</a></li>
+    </ul>
 
-        <li class="menu-category fiscal"><a>Fiscal</a></li>
-        <ul class="submenu">
-          <li><a href="#" data-page="download_xml">Download do XML das vendas</a></li>
-          <li><a href="#" data-page="imprimir_etiqueta">Imprimir etiqueta de preço</a></li>
-        </ul>
-      </ul>
-    </nav>
+    <!-- Suprimentos -->
+    <li class="menu-category suprimentos"><a>Suprimentos</a></li>
+    <ul class="submenu">
+      <li><a href="#" data-page="ajuste_estoque">Ajuste de Estoque</a></li>
+      <li><a href="#" data-page="cadastro_combo">Cadastro de Combo</a></li>
+      <li><a href="#" data-page="cadastro_item">Cadastro de Item</a></li>
+      <li><a href="#" data-page="conhecimento_transporte">Conhecimento de Transporte</a></li>
+      <li><a href="#" data-page="formula_reclassificacao">Fórmula de Reclassificação</a></li>
+      <li><a href="#" data-page="item_x_empresa">Item X Empresa</a></li>
+      <li><a href="#" data-page="kardex_item">Kardex do Item</a></li>
+      <li><a href="#" data-page="kardex_produto">Kardex do Produto</a></li>
+      <li><a href="#" data-page="nota_fiscal_entrada">Nota Fiscal de Entrada</a></li>
+      <li><a href="#" data-page="reclassificacao_item">Reclassificação de Item</a></li>
+    </ul>
+
+    <!-- Automação -->
+    <li class="menu-category automacao"><a>Automação</a></li>
+    <ul class="submenu">
+      <li><a href="#" data-page="abastecimentos">Abastecimentos</a></li>
+      <li><a href="#" data-page="alteracao_preco">Alteração de Preço</a></li>
+      <li><a href="#" data-page="alteracao_preco_item_empresa">Alteração de Preço Item X Empresa</a></li>
+      <li><a href="#" data-page="consulta_venda">Consulta Venda</a></li>
+      <li><a href="#" data-page="lmc">LMC</a></li>
+      <li><a href="#" data-page="monitoramento_replicacao">Monitoramento da Replicação / Sincronização</a></li>
+      <li><a href="#" data-page="simulador_condicao_venda">Simulador de Condição de Venda</a></li>
+    </ul>
+
+    <!-- Financeiro -->
+    <li class="menu-category financeiro"><a>Financeiro</a></li>
+    <ul class="submenu">
+      <li><a href="#" data-page="agrupamento_titulos_colaboradores">Agrupamento de Títulos de Colaboradores</a></li>
+      <li><a href="#" data-page="agrupamento_titulos_pagar">Agrupamento de Títulos a Pagar</a></li>
+      <li><a href="#" data-page="agrupamento_titulos_receber">Agrupamento de Títulos a Receber</a></li>
+      <li><a href="#" data-page="conciliacao_cartoes">Conciliação de Cartões</a></li>
+      <li><a href="#" data-page="conciliacao_movimento_financeiro">Conciliação do Movimento Financeiro</a></li>
+      <li><a href="#" data-page="despesas">Despesas</a></li>
+      <li><a href="#" data-page="exclusao_transferencia_financeira">Exclusão de Transferência Financeira</a></li>
+      <li><a href="#" data-page="faturamento_cartoes">Faturamento de Cartões</a></li>
+      <li><a href="#" data-page="faturamento_global">Faturamento Global</a></li>
+      <li><a href="#" data-page="gerar_boletos">Gerar Boletos</a></li>
+    </ul>
+
+    <!-- Fiscal -->
+    <li class="menu-category fiscal"><a>Fiscal</a></li>
+    <ul class="submenu">
+      <li><a href="#" data-page="gerar_sped_fiscal">Gerar Sped Fiscal</a></li>
+      <li><a href="#" data-page="instalacao_certificado_digital">Instalação do Certificado Digital</a></li>
+      <li><a href="#" data-page="inutilizacao_nfce_nfe">Inutilização de NFCe / NFe</a></li>
+      <li><a href="#" data-page="nota_fiscal_saida">Nota Fiscal de Saída</a></li>
+      <li><a href="#" data-page="processamento_dfe_lote">Processamento DFe em Lote</a></li>
+    </ul>
+  </ul>
+</nav>
+
   </div>
 
   <div class="content welcome-screen" id="content">
