@@ -10,63 +10,141 @@
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
     }
+
     body {
-      display: flex;
       min-height: 100vh;
     }
+
     .sidebar {
-  width: 250px;
-  flex-shrink: 0; /* Evita que o menu encolha */
-  background-color: #284358;
-  color: white;
-  padding: 20px;
+      width: 250px;
+      background-color: #284358;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 40px;
+      background-color: #d8d5d5;
+      box-sizing: border-box;
+      min-height: 100vh;
+      transition: margin-left 0.3s ease;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .welcome-screen {
+  position: relative;
+  background-color: #d8d5d5;
+  min-height: 100vh;
+  padding-top: 100px;
   box-sizing: border-box;
-  overflow-y: auto;
+  z-index: 1;
 }
 
-/* Ajustes de cores para conteúdo */
-.content h1, 
-.content h2 {
-  color: #ff8500; /* Laranja */
+.welcome-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("imagens/logo2.png") center center no-repeat;
+  background-size: contain;
+  opacity: 0.08; /* ajuste aqui a transparência */
+  z-index: 0;
 }
 
-.content ol li, 
-.content ul.content-list li {
-  color: #284358; /* Azul Concept */
+.welcome-screen > * {
+  position: relative;
+  z-index: 1;
 }
+
+
+    .menu-hidden .sidebar {
+      transform: translateX(-100%);
+    }
+
+    .menu-hidden .content {
+      margin-left: 0;
+    }
+
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: orange;
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 20px;
+      margin-top: 60px;
+    }
 
     .logo-img {
       width: 100%;
       max-width: 150px;
       margin-bottom: 5px;
     }
+
     .logo h1 {
       font-family: 'Dela Gothic One', sans-serif;
       font-size: 18px;
-      margin: 0 0 15px 0;
+      margin: 0 0 30px 10px;
       color: white;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
+      background-color: white;
+      color: orange;
       border: none;
-      border-radius: 4px;
-      box-sizing: border-box;
+      border-radius: 5px;
+      padding: 6px 10px;
+      width: 80%;
+      margin-bottom: 10px;
+      font-size: 16px;
+      cursor: text;
     }
+
+    #searchButton {
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 10px;
+      cursor: pointer;
+      margin-top: 0;
+      width: 90%;
+    }
+
     ul {
       list-style: none;
       padding-left: 0;
       margin: 0;
     }
+
     li {
       margin-bottom: 10px;
     }
+
     a {
       color: white;
       text-decoration: none;
@@ -76,53 +154,52 @@
       border-radius: 4px;
       transition: background-color 0.3s;
     }
+
     a:hover {
       background-color: #1f364d;
       text-decoration: none;
     }
+
     .menu-category > a {
       cursor: default;
       padding: 0;
       margin-bottom: 8px;
       font-weight: bold;
     }
-    .menu-category.corporativo > a {
-      color: #FFA500; /* Laranja */
-    }
+
+    .menu-category.corporativo > a,
     .menu-category.fiscal > a {
-      color: #FFA500; /* Laranja */
+      color: #FFA500;
     }
+
     .submenu {
       margin-left: 15px;
       margin-bottom: 15px;
     }
-    .content {
-      flex-grow: 1;
-      padding: 40px;
-      overflow-y: auto;
-      background-color: #d8d5d5;
-      box-sizing: border-box;
-      max-width: none;
-    }
+
     h1, h2 {
       color: #003366;
       margin-top: 0;
     }
+
     ul.content-list {
       margin-bottom: 20px;
     }
+
     .destaque {
       background-color: #e0f7fa;
       padding: 15px;
       border-left: 5px solid #00796b;
       margin-bottom: 20px;
     }
+
     code {
       background-color: #eee;
       padding: 2px 5px;
       border-radius: 3px;
       font-family: monospace;
     }
+
     iframe {
       border: none;
       display: block;
@@ -131,169 +208,141 @@
       max-width: 800px;
       height: 450px;
     }
+
+    .menu-category.corporativo {
+      margin-top: 40px;
+    }
+
+    .content h2 {
+      color: orange;
+      margin-top: 9px;
+    }
   </style>
 </head>
 <body>
+  <button class="toggle-button" id="menuToggle">☰</button>
+
   <div class="sidebar">
     <div class="logo">
       <img src="imagens/logo.png" alt="Logo Concept" class="logo-img" />
       <h1>CONCEPT SOLUÇÕES</h1>
     </div>
 
-    <input type="text" id="searchInput" placeholder="Pesquisar..." />
+    <form id="searchForm" onsubmit="return false;">
+      <input type="text" id="searchInput" placeholder="Pesquisar..." />
+      <button type="submit" id="searchButton">🔍 Buscar</button>
+    </form>
 
     <nav>
       <ul id="menuList">
         <li class="menu-category corporativo"><a>Corporativo</a></li>
         <ul class="submenu">
-          <li><a href="javascript:void(0)" data-page="contrato">Contrato de Crédito</a></li>
-          <li><a href="javascript:void(0)" data-page="cadastro_cliente">Cadastro de Cliente</a></li>
-          <li><a href="javascript:void(0)" data-page="cadastro_colaborador">Cadastro de Colaborador</a></li>
+          <li><a href="#" data-page="contrato">Contrato de Crédito</a></li>
+          <li><a href="#" data-page="cadastro_cliente">Cadastro de Cliente</a></li>
+          <li><a href="#" data-page="cadastro_colaborador">Cadastro de Colaborador</a></li>
         </ul>
 
         <li class="menu-category fiscal"><a>Fiscal</a></li>
         <ul class="submenu">
-          <li><a href="javascript:void(0)" data-page="download_xml">Download do XML das vendas</a></li>
-          <li><a href="javascript:void(0)" data-page="imprimir_etiqueta">Imprimir etiqueta de preço</a></li>
+          <li><a href="#" data-page="download_xml">Download do XML das vendas</a></li>
+          <li><a href="#" data-page="imprimir_etiqueta">Imprimir etiqueta de preço</a></li>
         </ul>
       </ul>
     </nav>
   </div>
 
-  <div class="content" id="content">
+  <div class="content welcome-screen" id="content">
     <h2>Bem-vindo ao Portal Concept</h2>
-    <p>Escolha uma opção no menu lateral para visualizar o passo a passo.</p>
+    <p>Este portal foi criado para facilitar o acesso aos tutoriais, manuais e passo a passo das soluções desenvolvidas pela Concept Soluções.</p>
+    <p>A Concept Soluções é uma empresa especializada em tecnologia para gestão empresarial, oferecendo sistemas e serviços que ajudam sua empresa a crescer com eficiência e inovação.</p>
+    <p>Utilize o menu lateral para navegar e encontrar as informações que você precisa.</p>
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const pages = {
-        contrato: {
-          title: "Cadastro de Contrato de Crédito",
-          video: "_XVZm3-DtLw",
-          htmlContent: `
-            <h1>Como Cadastrar um Contrato de Crédito</h1>
-            <p>O Contrato de Crédito é utilizado para controlar os limites de crédito de clientes ou grupos econômicos que abastecem a prazo. Essa funcionalidade substitui os antigos campos de limite no cadastro de cliente e classe de cliente.</p>
+    const pages = {
+      contrato: {
+        title: "Cadastro de Contrato de Crédito",
+        video: null,
+        htmlContent: `<h2>Exemplo de conteúdo</h2><p>Conteúdo da página Contrato de Crédito.</p>`
+      },
+      cadastro_cliente: {
+        title: "Cadastro de Cliente",
+        video: null,
+        htmlContent: `<p>Passo a passo para cadastrar um cliente.</p>`
+      },
+      cadastro_colaborador: {
+        title: "Cadastro de Colaborador",
+        video: null,
+        htmlContent: `<p>Passo a passo para cadastrar um colaborador.</p>`
+      },
+      download_xml: {
+        title: "Download do XML das vendas",
+        video: null,
+        htmlContent: `<p>Passo a passo para baixar os arquivos XML das vendas.</p>`
+      },
+      imprimir_etiqueta: {
+        title: "Imprimir etiqueta de preço",
+        video: null,
+        htmlContent: `<p>Passo a passo para imprimir etiquetas de preço.</p>`
+      }
+    };
 
-            <h2>📍 Acesse</h2>
-            <ul class="content-list">
-              <li>Menu: <strong>Corporativo ➔ Cadastros ➔ Contrato de Crédito</strong></li>
-            </ul>
+    const contentDiv = document.getElementById('content');
+    const menuLinks = document.querySelectorAll('#menuList a[data-page]');
 
-            <h2>📝 Passo a Passo</h2>
-            <ol>
-              <li>Abra a tela de Contrato de Crédito.</li>
-              <li>Clique no botão de inclusão (+).</li>
-              <li>Busque o cliente pelo código ou nome. Selecione e clique em <strong>OK</strong>.</li>
-              <li>Na tela de inclusão:
-                <ul>
-                  <li><strong>Número:</strong> utilizar, por padrão, o código do cliente.</li>
-                  <li><strong>Valor:</strong> informe o limite de crédito.</li>
-				  <li><strong>Empresa:</strong> Selecione a empresa que o cliente poderá comprar a prazo. Caso possa comprar na rede toda, deixe em branco que o limite de crédito servirá para todos os postos e lojas da rede.</li>
-                </ul>
-              </li>
-              <li>Na aba <strong>Tipo de Recebimento</strong>:
-                <ul>
-                  <li>Inclua um ou mais tipos, como Venda a Prazo ou Cheque Pré(clicando no botão de inclusão no rodapé).</li>
-                  <li><strong>Percentual de Crédito:</strong> Defina o percentual a ser utilizado. Exemplo: 100% para Venda a PRazo ou defina se quer dividir 50% do valor do limite para venda a prazo e 50% para Cheque Pré</li>
-                  <li><strong>Limite de Transação:</strong> preencha <code>999999</code>.</li>
-                </ul>
-              </li>
-              <li>Após preenchimento, clique em <strong>Salvar</strong>.</li>
-              <li>Na sequência, clique em <strong>Aprovar</strong> .</li>
-            </ol>
+    function loadPage(pageKey) {
+      const page = pages[pageKey];
+      if (!page) return;
 
-            <div class="destaque">
-              <strong>⚠️ Observações importantes:</strong>
-              <ul>
-                <li>Se o cliente pertence a um grupo econômico, o contrato será compartilhado com todo o grupo.</li>
-                <li>Contratos não podem ser alterados após a criação. Somente é possível incluir um crédito suplementar na aba de crédito suplementar ou inative o contrato válido e crie e aprove outro com o limite maior ou menor, como desejar.</li>
-                <li>É possível adicionar créditos suplementares, visualizar histórico de alterações, bloquear ou cancelar contratos.</li>
-              </ul>
-            </div>
+      contentDiv.classList.remove('welcome-screen');
+      let html = `<h2>${page.title}</h2>`;
+      html += page.htmlContent;
 
-            <h2>📊 Relatórios</h2>
-            <p>Acesse: <strong>Financeiro ➔ Relatórios ➔ Rotinas ➔ Limites de Crédito e Saldos de Clientes em Aberto</strong></p>
-            <p>Este relatório permite consultar:</p>
-            <ul>
-              <li>Recebimentos</li>
-              <li>Limites por tipo</li>
-              <li>Saldo disponível</li>
-              <li>Vendas em aberto</li>
-            </ul>
-          `
-        },
-        cadastro_cliente: {
-          title: "Cadastro de Cliente",
-          video: null,
-          htmlContent: `
-            <h2>Cadastro de Cliente</h2>
-            <p>Passo a passo para cadastrar um cliente.</p>
-          `
-        },
-        cadastro_colaborador: {
-          title: "Cadastro de Colaborador",
-          video: null,
-          htmlContent: `
-            <h2>Cadastro de Colaborador</h2>
-            <p>Passo a passo para cadastrar um colaborador.</p>
-          `
-        },
-        download_xml: {
-          title: "Download do XML das vendas",
-          video: null,
-          htmlContent: `
-            <h2>Download do XML das vendas</h2>
-            <p>Passo a passo para baixar os arquivos XML das vendas.</p>
-          `
-        },
-        imprimir_etiqueta: {
-          title: "Imprimir etiqueta de preço",
-          video: null,
-          htmlContent: `
-            <h2>Imprimir etiqueta de preço</h2>
-            <p>Passo a passo para imprimir etiquetas de preço.</p>
-          `
-        }
-      };
-
-      const contentDiv = document.getElementById('content');
-      const menuLinks = document.querySelectorAll('#menuList a[data-page]');
-
-      function loadPage(pageKey) {
-        const page = pages[pageKey];
-        if (!page) return;
-
-        let html = `<h2>${page.title}</h2>`;
-
-        html += page.htmlContent;
-
-        if (page.video) {
-          html += `<iframe src="https://www.youtube.com/embed/${page.video.trim()}" allowfullscreen></iframe>`;
-        }
-
-        contentDiv.innerHTML = html;
+      if (page.video) {
+        html += `<iframe src="https://www.youtube.com/embed/${page.video.trim()}" allowfullscreen></iframe>`;
       }
 
-      menuLinks.forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const pageKey = link.getAttribute('data-page');
-          loadPage(pageKey);
-        });
-      });
+      contentDiv.innerHTML = html;
+    }
 
-      // Pesquisa no menu
-      const searchInput = document.getElementById('searchInput');
-      const menuItems = document.querySelectorAll('#menuList li');
-
-      searchInput.addEventListener('keyup', () => {
-        const filter = searchInput.value.toLowerCase();
-        menuItems.forEach(item => {
-          const text = item.textContent.toLowerCase();
-          item.style.display = text.includes(filter) ? "" : "none";
-        });
+    menuLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const pageKey = link.getAttribute('data-page');
+        loadPage(pageKey);
       });
+    });
+
+    const toggleButton = document.getElementById('menuToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('menu-hidden');
+    });
+
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const menuItems = document.querySelectorAll('#menuList li');
+
+    function filterMenu() {
+      const term = searchInput.value.toLowerCase();
+      menuItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(term) ? '' : 'none';
+      });
+    }
+
+    searchButton.addEventListener('click', filterMenu);
+
+    searchInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        filterMenu();
+      }
+    });
+
+    searchInput.addEventListener('input', function () {
+      if (searchInput.value.trim() === '') {
+        menuItems.forEach(item => (item.style.display = ''));
+      }
     });
   </script>
 </body>
