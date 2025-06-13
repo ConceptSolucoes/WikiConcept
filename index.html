@@ -327,32 +327,193 @@
 
   <script>
     const pages = {
-      contrato: {
-        title: "Cadastro de Contrato de Crédito",
-        video: null,
-        htmlContent: `<h2>Exemplo de conteúdo</h2><p>Conteúdo da página Contrato de Crédito.</p>`
-      },
-      cadastro_cliente: {
-        title: "Cadastro de Cliente",
-        video: null,
-        htmlContent: `<p>Passo a passo para cadastrar um cliente.</p>`
-      },
-      cadastro_colaborador: {
-        title: "Cadastro de Colaborador",
-        video: null,
-        htmlContent: `<p>Passo a passo para cadastrar um colaborador.</p>`
-      },
-      download_xml: {
-        title: "Download do XML das vendas",
-        video: null,
-        htmlContent: `<p>Passo a passo para baixar os arquivos XML das vendas.</p>`
-      },
-      imprimir_etiqueta: {
-        title: "Imprimir etiqueta de preço",
-        video: null,
-        htmlContent: `<p>Passo a passo para imprimir etiquetas de preço.</p>`
-      }
-    };
+  classe_cliente: {
+    title: "Classe de Cliente",
+    video: null,
+    htmlContent: `<p>Instruções para cadastrar uma Classe de Cliente.</p>`
+  },
+  cadastro_cliente: {
+    title: "Cadastro de Cliente",
+    video: null,
+    htmlContent: `<p>Passo a passo para cadastrar um cliente.</p>`
+  },
+  cadastro_colaborador: {
+    title: "Cadastro de Colaborador",
+    video: null,
+    htmlContent: `<p>Passo a passo para cadastrar um colaborador.</p>`
+  },
+  cadastro_pessoa: {
+    title: "Cadastro de Pessoa",
+    video: null,
+    htmlContent: `<p>Cadastro de Pessoa física ou jurídica.</p>`
+  },
+  ficha_eletronica_pessoa: {
+    title: "Ficha Eletrônica da Pessoa",
+    video: null,
+    htmlContent: `<p>Como visualizar a ficha completa de uma pessoa.</p>`
+  },
+  ajuste_estoque: {
+    title: "Ajuste de Estoque",
+    video: null,
+    htmlContent: `<p>Como realizar ajustes de estoque manualmente.</p>`
+  },
+  cadastro_combo: {
+    title: "Cadastro de Combo",
+    video: null,
+    htmlContent: `<p>Cadastro de produtos agrupados (combos).</p>`
+  },
+  cadastro_item: {
+    title: "Cadastro de Item",
+    video: null,
+    htmlContent: `<p>Passo a passo para cadastrar um item no sistema.</p>`
+  },
+  conhecimento_transporte: {
+    title: "Conhecimento de Transporte",
+    video: null,
+    htmlContent: `<p>Como registrar e utilizar o Conhecimento de Transporte.</p>`
+  },
+  formula_reclassificacao: {
+    title: "Fórmula de Reclassificação",
+    video: null,
+    htmlContent: `<p>Definição de fórmulas para reclassificação automática.</p>`
+  },
+  item_x_empresa: {
+    title: "Item X Empresa",
+    video: null,
+    htmlContent: `<p>Como configurar itens por empresa.</p>`
+  },
+  kardex_item: {
+    title: "Kardex do Item",
+    video: null,
+    htmlContent: `<p>Consulta de movimentações de estoque do item.</p>`
+  },
+  kardex_produto: {
+    title: "Kardex do Produto",
+    video: null,
+    htmlContent: `<p>Histórico de movimentações do produto.</p>`
+  },
+  nota_fiscal_entrada: {
+    title: "Nota Fiscal de Entrada",
+    video: null,
+    htmlContent: `<p>Registro e conferência de notas fiscais de entrada.</p>`
+  },
+  reclassificacao_item: {
+    title: "Reclassificação de Item",
+    video: null,
+    htmlContent: `<p>Reclassifique itens com novos parâmetros contábeis.</p>`
+  },
+  abastecimentos: {
+    title: "Abastecimentos",
+    video: null,
+    htmlContent: `<p>Consulta e gerenciamento de abastecimentos realizados.</p>`
+  },
+  alteracao_preco: {
+    title: "Alteração de Preço",
+    video: null,
+    htmlContent: `<p>Alteração de preços de produtos e serviços.</p>`
+  },
+  alteracao_preco_item_empresa: {
+    title: "Alteração de Preço Item X Empresa",
+    video: null,
+    htmlContent: `<p>Alteração de preços por empresa específica.</p>`
+  },
+  consulta_venda: {
+    title: "Consulta Venda",
+    video: null,
+    htmlContent: `<p>Consulta detalhada de vendas realizadas.</p>`
+  },
+  lmc: {
+    title: "LMC - Livro de Movimentação de Combustível",
+    video: null,
+    htmlContent: `<p>Consulta e emissão do LMC.</p>`
+  },
+  monitoramento_replicacao: {
+    title: "Monitoramento da Replicação / Sincronização",
+    video: null,
+    htmlContent: `<p>Acompanhe a replicação de dados entre sistemas.</p>`
+  },
+  simulador_condicao_venda: {
+    title: "Simulador de Condição de Venda",
+    video: null,
+    htmlContent: `<p>Simulação de condições de venda para o cliente.</p>`
+  },
+  agrupamento_titulos_colaboradores: {
+    title: "Agrupamento de Títulos de Colaboradores",
+    video: null,
+    htmlContent: `<p>Unifique títulos gerados para colaboradores.</p>`
+  },
+  agrupamento_titulos_pagar: {
+    title: "Agrupamento de Títulos a Pagar",
+    video: null,
+    htmlContent: `<p>Agrupamento de contas a pagar por critérios definidos.</p>`
+  },
+  agrupamento_titulos_receber: {
+    title: "Agrupamento de Títulos a Receber",
+    video: null,
+    htmlContent: `<p>Consolidação de títulos a receber.</p>`
+  },
+  conciliacao_cartoes: {
+    title: "Conciliação de Cartões",
+    video: null,
+    htmlContent: `<p>Passo a passo para conciliação de vendas por cartão.</p>`
+  },
+  conciliacao_movimento_financeiro: {
+    title: "Conciliação do Movimento Financeiro",
+    video: null,
+    htmlContent: `<p>Conciliação financeira de todas as movimentações.</p>`
+  },
+  despesas: {
+    title: "Despesas",
+    video: null,
+    htmlContent: `<p>Gestão de despesas operacionais e administrativas.</p>`
+  },
+  exclusao_transferencia_financeira: {
+    title: "Exclusão de Transferência Financeira",
+    video: null,
+    htmlContent: `<p>Remoção de lançamentos de transferência indevidos.</p>`
+  },
+  faturamento_cartoes: {
+    title: "Faturamento de Cartões",
+    video: null,
+    htmlContent: `<p>Geração e conferência de faturamentos com cartões.</p>`
+  },
+  faturamento_global: {
+    title: "Faturamento Global",
+    video: null,
+    htmlContent: `<p>Resumo geral do faturamento da empresa.</p>`
+  },
+  gerar_boletos: {
+    title: "Gerar Boletos",
+    video: null,
+    htmlContent: `<p>Como gerar boletos bancários para cobrança.</p>`
+  },
+  gerar_sped_fiscal: {
+    title: "Gerar Sped Fiscal",
+    video: null,
+    htmlContent: `<p>Geração do arquivo SPED Fiscal para o Fisco.</p>`
+  },
+  instalacao_certificado_digital: {
+    title: "Instalação do Certificado Digital",
+    video: null,
+    htmlContent: `<p>Procedimento para instalar certificado A1 ou A3.</p>`
+  },
+  inutilizacao_nfce_nfe: {
+    title: "Inutilização de NFCe / NFe",
+    video: null,
+    htmlContent: `<p>Inutilização de numeração fiscal conforme legislação.</p>`
+  },
+  nota_fiscal_saida: {
+    title: "Nota Fiscal de Saída",
+    video: null,
+    htmlContent: `<p>Cadastro e emissão de NF-e ou NFC-e de saída.</p>`
+  },
+  processamento_dfe_lote: {
+    title: "Processamento DFe em Lote",
+    video: null,
+    htmlContent: `<p>Processamento em massa de documentos fiscais eletrônicos.</p>`
+  }
+};
+
 
     const contentDiv = document.getElementById('content');
     const menuLinks = document.querySelectorAll('#menuList a[data-page]');
