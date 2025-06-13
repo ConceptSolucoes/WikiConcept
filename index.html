@@ -11,356 +11,116 @@
       height: 100%;
       font-family: Arial, sans-serif;
     }
-
-    body {
-      min-height: 100vh;
-    }
-
+    body { min-height: 100vh; }
     .sidebar {
-      width: 250px;
-      background-color: #284358;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-      overflow-y: auto;
-      position: fixed;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      transition: transform 0.3s ease;
-      z-index: 999;
+      width: 250px; background-color: #284358; color: white;
+      padding: 20px; box-sizing: border-box; overflow-y: auto;
+      position: fixed; height: 100vh; top: 0; left: 0;
+      transition: transform 0.3s ease; z-index: 999;
     }
-
     .content {
-      margin-left: 250px;
-      padding: 40px;
-      background-color: #d8d5d5;
-      box-sizing: border-box;
-      min-height: 100vh;
-      transition: margin-left 0.3s ease;
-      overflow-y: auto;
-      position: relative;
+      margin-left: 250px; padding: 40px; background-color: #d8d5d5;
+      box-sizing: border-box; min-height: 100vh; transition: margin-left 0.3s ease;
+      overflow-y: auto; position: relative;
     }
-
     .welcome-screen {
-  position: relative;
-  background-color: #d8d5d5;
-  min-height: 100vh;
-  padding-top: 100px;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-.welcome-screen::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("logo2.png") center center no-repeat;
-  background-size: contain;
-  opacity: 0.08;
-  z-index: 0;
-}
-
-
-.welcome-screen > * {
-  position: relative;
-  z-index: 1;
-}
-
-
-    .menu-hidden .sidebar {
-      transform: translateX(-100%);
+      position: relative; background-color: #d8d5d5;
+      min-height: 100vh; padding-top: 100px; box-sizing: border-box; z-index: 1;
     }
-
-    .menu-hidden .content {
-      margin-left: 0;
+    .welcome-screen::before {
+      content: ""; position: absolute; inset: 0;
+      background: url("logo2.png") center center no-repeat;
+      background-size: contain; opacity: 0.08; z-index: 0;
     }
-
+    .welcome-screen > * { position: relative; z-index: 1; }
+    .menu-hidden .sidebar { transform: translateX(-100%); }
+    .menu-hidden .content { margin-left: 0; }
     .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: orange;
-      border: none;
-      color: white;
-      font-size: 24px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
+      position: fixed; top: 10px; left: 10px; background-color: orange;
+      border: none; color: white; font-size: 24px; padding: 5px 10px;
+      border-radius: 5px; cursor: pointer; z-index: 1000;
     }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 20px;
-      margin-top: 60px;
-    }
-
-    .logo-img {
-      width: 100%;
-      max-width: 150px;
-      margin-bottom: 5px;
-    }
-
-    .logo h1 {
-      font-family: 'Dela Gothic One', sans-serif;
-      font-size: 18px;
-      margin: 0 0 30px 10px;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .logo-img {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-    
-.logo-img:focus, .logo-img:active {
-  outline: none;
-  border: none;
-}
-
-
+    .logo { display: flex; flex-direction: column; align-items: flex-start;
+      padding-left: 20px; margin-top: 60px; }
+    .logo-img { width: 100%; max-width: 150px; margin-bottom: 5px; border: none !important; outline: none !important; box-shadow: none !important; }
     input[type="text"] {
-      background-color: white;
-      color: orange;
-      border: none;
-      border-radius: 5px;
-      padding: 6px 10px;
-      width: 80%;
-      margin-bottom: 10px;
-      font-size: 16px;
-      cursor: text;
+      background-color: white; color: orange; border: none; border-radius: 5px;
+      padding: 6px 10px; width: 80%; margin-bottom: 10px; font-size: 16px;
     }
-
     #searchButton {
-      background-color: orange;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 6px 10px;
-      cursor: pointer;
-      margin-top: 0;
-      width: 90%;
+      background-color: orange; color: white; border: none; border-radius: 5px;
+      padding: 6px 10px; cursor: pointer; margin-top: 0; width: 90%;
     }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
+    ul { list-style: none; padding-left: 0; margin: 0; }
+    li { margin-bottom: 10px; }
     a {
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-      display: block;
-      padding: 5px 8px;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      color: white; text-decoration: none; cursor: pointer; display: block;
+      padding: 5px 8px; border-radius: 4px; transition: background-color 0.3s;
     }
-
-    a:hover {
-      background-color: #1f364d;
-      text-decoration: none;
-    }
-
-    .menu-category > a {
-      cursor: default;
-      padding: 0;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-.menu-category.corporativo > a,
-.menu-category.fiscal > a,
-.menu-category.suprimentos > a,
-.menu-category.automacao > a,
-.menu-category.financeiro > a {
-  color: #FFA500;
-
-    }
-
-    .submenu {
-      margin-left: 15px;
-      margin-bottom: 15px;
-    }
-
-    h1, h2 {
-      color: #003366;
-      margin-top: 0;
-    }
-
-    ul.content-list {
-      margin-bottom: 20px;
-    }
-
+    a:hover { background-color: #1f364d; text-decoration: none; }
+    .menu-category > a { cursor: default; padding: 0; margin-bottom: 8px; font-weight: bold; }
+    .menu-category.corporativo > a,
+    .menu-category.fiscal > a,
+    .menu-category.suprimentos > a,
+    .menu-category.automacao > a,
+    .menu-category.financeiro > a { color: #FFA500; }
+    .submenu { margin-left: 15px; margin-bottom: 15px; }
+    h1, h2 { color: #003366; margin-top: 0; }
     .destaque {
-      background-color: #e0f7fa;
-      padding: 15px;
-      border-left: 5px solid #00796b;
+      background-color: #e0f7fa; padding: 15px; border-left: 5px solid #00796b;
       margin-bottom: 20px;
     }
-
     code {
-      background-color: #eee;
-      padding: 2px 5px;
-      border-radius: 3px;
+      background-color: #eee; padding: 2px 5px; border-radius: 3px;
       font-family: monospace;
     }
-
     iframe {
-      border: none;
-      display: block;
-      margin: 30px auto 0 auto;
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
+      border: none; display: block; margin: 30px auto 0 auto;
+      width: 100%; max-width: 800px; height: 450px;
     }
-
-    .menu-category.corporativo {
-      margin-top: 40px;
-    }
-
-    .content h2 {
-      color: orange;
-      margin-top: 9px;
-    }
+    .menu-category.corporativo { margin-top: 40px; }
+    .content h2 { color: orange; margin-top: 9px; }
   </style>
 </head>
 <body>
   <button class="toggle-button" id="menuToggle">☰</button>
-
   <div class="sidebar">
     <div class="logo">
-    <img src="logo.png" alt="Logo Concept" class="logo-img" />
+      <img src="logo.png" alt="Logo Concept" class="logo-img" />
       <h1>CONCEPT SOLUÇÕES</h1>
     </div>
-
     <form id="searchForm" onsubmit="return false;">
       <input type="text" id="searchInput" placeholder="Pesquisar..." />
       <button type="submit" id="searchButton">🔍 Buscar</button>
     </form>
-
     <nav>
-  <ul id="menuList">
-    <!-- Corporativo -->
-    <li class="menu-category corporativo"><a>Corporativo</a></li>
-    <ul class="submenu">
-      <li><a href="#" data-page="classe_cliente">Classe de Cliente</a></li>
-      <li><a href="#" data-page="cadastro_cliente">Cadastro de Cliente</a></li>
-      <li><a href="#" data-page="cadastro_colaborador">Cadastro de Colaborador</a></li>
-      <li><a href="#" data-page="cadastro_pessoa">Cadastro de Pessoa</a></li>
-      <li><a href="#" data-page="contrato_de_credito">Contrato de Crédito</a></li>
-      <li><a href="#" data-page="ficha_eletronica_pessoa">Ficha Eletrônica da Pessoa</a></li>
-    </ul>
-
-    <!-- Suprimentos -->
-    <li class="menu-category suprimentos"><a>Suprimentos</a></li>
-    <ul class="submenu">
-      <li><a href="#" data-page="ajuste_estoque">Ajuste de Estoque</a></li>
-      <li><a href="#" data-page="cadastro_combo">Cadastro de Combo</a></li>
-      <li><a href="#" data-page="cadastro_item">Cadastro de Item</a></li>
-      <li><a href="#" data-page="conhecimento_transporte">Conhecimento de Transporte</a></li>
-      <li><a href="#" data-page="formula_reclassificacao">Fórmula de Reclassificação</a></li>
-      <li><a href="#" data-page="item_x_empresa">Item X Empresa</a></li>
-      <li><a href="#" data-page="kardex_item">Kardex do Item</a></li>
-      <li><a href="#" data-page="kardex_produto">Kardex do Produto</a></li>
-      <li><a href="#" data-page="nota_fiscal_entrada">Nota Fiscal de Entrada</a></li>
-      <li><a href="#" data-page="reclassificacao_item">Reclassificação de Item</a></li>
-    </ul>
-
-    <!-- Automação -->
-    <li class="menu-category automacao"><a>Automação</a></li>
-    <ul class="submenu">
-      <li><a href="#" data-page="abastecimentos">Abastecimentos</a></li>
-      <li><a href="#" data-page="alteracao_preco">Alteração de Preço</a></li>
-      <li><a href="#" data-page="alteracao_preco_item_empresa">Alteração de Preço Item X Empresa</a></li>
-      <li><a href="#" data-page="consulta_venda">Consulta Venda</a></li>
-      <li><a href="#" data-page="lmc">LMC</a></li>
-      <li><a href="#" data-page="monitoramento_replicacao">Monitoramento da Replicação / Sincronização</a></li>
-      <li><a href="#" data-page="simulador_condicao_venda">Simulador de Condição de Venda</a></li>
-    </ul>
-
-    <!-- Financeiro -->
-    <li class="menu-category financeiro"><a>Financeiro</a></li>
-    <ul class="submenu">
-      <li><a href="#" data-page="agrupamento_titulos_colaboradores">Agrupamento de Títulos de Colaboradores</a></li>
-      <li><a href="#" data-page="agrupamento_titulos_pagar">Agrupamento de Títulos a Pagar</a></li>
-      <li><a href="#" data-page="agrupamento_titulos_receber">Agrupamento de Títulos a Receber</a></li>
-      <li><a href="#" data-page="conciliacao_cartoes">Conciliação de Cartões</a></li>
-      <li><a href="#" data-page="conciliacao_movimento_financeiro">Conciliação do Movimento Financeiro</a></li>
-      <li><a href="#" data-page="despesas">Despesas</a></li>
-      <li><a href="#" data-page="exclusao_transferencia_financeira">Exclusão de Transferência Financeira</a></li>
-      <li><a href="#" data-page="faturamento_cartoes">Faturamento de Cartões</a></li>
-      <li><a href="#" data-page="faturamento_global">Faturamento Global</a></li>
-      <li><a href="#" data-page="gerar_boletos">Gerar Boletos</a></li>
-    </ul>
-
-    <!-- Fiscal -->
-    <li class="menu-category fiscal"><a>Fiscal</a></li>
-    <ul class="submenu">
-      <li><a href="#" data-page="gerar_sped_fiscal">Gerar Sped Fiscal</a></li>
-      <li><a href="#" data-page="instalacao_certificado_digital">Instalação do Certificado Digital</a></li>
-      <li><a href="#" data-page="inutilizacao_nfce_nfe">Inutilização de NFCe / NFe</a></li>
-      <li><a href="#" data-page="nota_fiscal_saida">Nota Fiscal de Saída</a></li>
-      <li><a href="#" data-page="processamento_dfe_lote">Processamento DFe em Lote</a></li>
-    </ul>
-  </ul>
-</nav>
-
+      <ul id="menuList">
+        <li class="menu-category corporativo"><a>Corporativo</a></li>
+        <ul class="submenu">
+          <li><a href="#" data-page="contrato_de_credito">Contrato de Crédito</a></li>
+        </ul>
+      </ul>
+    </nav>
   </div>
-
   <div class="content welcome-screen" id="content">
     <h2>Bem-vindo ao Portal Concept</h2>
     <p>Este portal foi criado para facilitar o acesso aos tutoriais, manuais e passo a passo das soluções desenvolvidas pela Concept Soluções.</p>
     <p>A Concept Soluções é uma empresa especializada em tecnologia para gestão empresarial, oferecendo sistemas e serviços que ajudam sua empresa a crescer com eficiência e inovação.</p>
     <p>Utilize o menu lateral para navegar e encontrar as informações que você precisa.</p>
   </div>
-
-  <script>
-    const pages = {
-  classe_cliente: {
-    title: "Classe de Cliente",
-    video: null,
-    htmlContent: `<p>Instruções para cadastrar uma Classe de Cliente.</p>`
-  },
-  cadastro_cliente: {
-    title: "Cadastro de Cliente",
-    video: null,
-    htmlContent: `<p>Passo a passo para cadastrar um cliente.</p>`
-  },
-  cadastro_colaborador: {
-    title: "Cadastro de Colaborador",
-    video: null,
-    htmlContent: `<p>Passo a passo para cadastrar um colaborador.</p>`
-  },
-  cadastro_pessoa: {
-    title: "Cadastro de Pessoa",
-    video: null,
-    htmlContent: `<p>Cadastro de Pessoa física ou jurídica.</p>`
-  },
-       contrato_de_credito: {
+<script>
+const pages = {
+  contrato_de_credito: {
     title: "Contrato de Crédito",
     video: "_XVZm3-DtLw",
     htmlContent: `
       <p>O Contrato de Crédito é utilizado para clientes que possuem limite para abastecimento a prazo. Siga o passo a passo abaixo para realizar a inclusão:</p>
-
       <div class="destaque">
         <strong>1. Acessando o cadastro:</strong>
         <ul>
           <li>Navegue até <strong>Corporativo > Cadastro > Contrato de Crédito</strong>.</li>
         </ul>
       </div>
-
       <div class="destaque">
         <strong>2. Selecionando o cliente:</strong>
         <ul>
@@ -369,7 +129,6 @@
           <li>Selecione o cliente desejado e clique em <strong>OK</strong>.</li>
         </ul>
       </div>
-
       <div class="destaque">
         <strong>3. Preenchendo o contrato:</strong>
         <ul>
@@ -377,253 +136,49 @@
           <li>Informe o <strong>Valor</strong> correspondente ao limite de crédito do cliente.</li>
         </ul>
       </div>
-
       <div class="destaque">
         <strong>4. Configurando o tipo de recebimento:</strong>
         <ul>
           <li>Na aba <strong>Tipo de Recebimento</strong>, é possível incluir mais de um tipo clicando no botão <strong>+</strong> no rodapé.</li>
-          <li>Em <strong>Percentual de Crédito</strong>, utilize sempre <strong>100%</strong>, mesmo com mais de um tipo de recebimento.</li>
-          <li>No campo <strong>Limite de Transação</strong>, utilize por padrão o valor <strong>999999</strong> (quantidade máxima de transações permitidas).</li>
+          <li>Em <strong>Percentual de Crédito</strong>, utilize sempre <strong>100%</strong>.</li>
+          <li>No campo <strong>Limite de Transação</strong>, utilize o padrão <strong>999999</strong>.</li>
         </ul>
       </div>
-
       <div class="destaque">
         <strong>5. Relatórios de acompanhamento:</strong>
         <ul>
           <li>Acesse <strong>Financeiro > Relatórios > Rotinas > Limites de Crédito e Saldos de Clientes em Aberto</strong>.</li>
-          <li>Nesse relatório você poderá visualizar: Recebimentos, Limite de Crédito, Saldo Atual e Total de Vendas em Aberto.</li>
+          <li>Visualize recebimentos, limite de crédito, saldo atual e total de vendas em aberto.</li>
         </ul>
       </div>
-
       <p>Assista abaixo o vídeo tutorial para um melhor entendimento:</p>
     `
-}
-
-  ficha_eletronica_pessoa: {
-    title: "Ficha Eletrônica da Pessoa",
-    video: null,
-    htmlContent: `<p>Como visualizar a ficha completa de uma pessoa.</p>`
-  },
-  ajuste_estoque: {
-    title: "Ajuste de Estoque",
-    video: null,
-    htmlContent: `<p>Como realizar ajustes de estoque manualmente.</p>`
-  },
-  cadastro_combo: {
-    title: "Cadastro de Combo",
-    video: null,
-    htmlContent: `<p>Cadastro de produtos agrupados (combos).</p>`
-  },
-  cadastro_item: {
-    title: "Cadastro de Item",
-    video: null,
-    htmlContent: `<p>Passo a passo para cadastrar um item no sistema.</p>`
-  },
-  conhecimento_transporte: {
-    title: "Conhecimento de Transporte",
-    video: null,
-    htmlContent: `<p>Como registrar e utilizar o Conhecimento de Transporte.</p>`
-  },
-  formula_reclassificacao: {
-    title: "Fórmula de Reclassificação",
-    video: null,
-    htmlContent: `<p>Definição de fórmulas para reclassificação automática.</p>`
-  },
-  item_x_empresa: {
-    title: "Item X Empresa",
-    video: null,
-    htmlContent: `<p>Como configurar itens por empresa.</p>`
-  },
-  kardex_item: {
-    title: "Kardex do Item",
-    video: null,
-    htmlContent: `<p>Consulta de movimentações de estoque do item.</p>`
-  },
-  kardex_produto: {
-    title: "Kardex do Produto",
-    video: null,
-    htmlContent: `<p>Histórico de movimentações do produto.</p>`
-  },
-  nota_fiscal_entrada: {
-    title: "Nota Fiscal de Entrada",
-    video: null,
-    htmlContent: `<p>Registro e conferência de notas fiscais de entrada.</p>`
-  },
-  reclassificacao_item: {
-    title: "Reclassificação de Item",
-    video: null,
-    htmlContent: `<p>Reclassifique itens com novos parâmetros contábeis.</p>`
-  },
-  abastecimentos: {
-    title: "Abastecimentos",
-    video: null,
-    htmlContent: `<p>Consulta e gerenciamento de abastecimentos realizados.</p>`
-  },
-  alteracao_preco: {
-    title: "Alteração de Preço",
-    video: null,
-    htmlContent: `<p>Alteração de preços de produtos e serviços.</p>`
-  },
-  alteracao_preco_item_empresa: {
-    title: "Alteração de Preço Item X Empresa",
-    video: null,
-    htmlContent: `<p>Alteração de preços por empresa específica.</p>`
-  },
-  consulta_venda: {
-    title: "Consulta Venda",
-    video: null,
-    htmlContent: `<p>Consulta detalhada de vendas realizadas.</p>`
-  },
-  lmc: {
-    title: "LMC - Livro de Movimentação de Combustível",
-    video: null,
-    htmlContent: `<p>Consulta e emissão do LMC.</p>`
-  },
-  monitoramento_replicacao: {
-    title: "Monitoramento da Replicação / Sincronização",
-    video: null,
-    htmlContent: `<p>Acompanhe a replicação de dados entre sistemas.</p>`
-  },
-  simulador_condicao_venda: {
-    title: "Simulador de Condição de Venda",
-    video: null,
-    htmlContent: `<p>Simulação de condições de venda para o cliente.</p>`
-  },
-  agrupamento_titulos_colaboradores: {
-    title: "Agrupamento de Títulos de Colaboradores",
-    video: null,
-    htmlContent: `<p>Unifique títulos gerados para colaboradores.</p>`
-  },
-  agrupamento_titulos_pagar: {
-    title: "Agrupamento de Títulos a Pagar",
-    video: null,
-    htmlContent: `<p>Agrupamento de contas a pagar por critérios definidos.</p>`
-  },
-  agrupamento_titulos_receber: {
-    title: "Agrupamento de Títulos a Receber",
-    video: null,
-    htmlContent: `<p>Consolidação de títulos a receber.</p>`
-  },
-  conciliacao_cartoes: {
-    title: "Conciliação de Cartões",
-    video: null,
-    htmlContent: `<p>Passo a passo para conciliação de vendas por cartão.</p>`
-  },
-  conciliacao_movimento_financeiro: {
-    title: "Conciliação do Movimento Financeiro",
-    video: null,
-    htmlContent: `<p>Conciliação financeira de todas as movimentações.</p>`
-  },
-  despesas: {
-    title: "Despesas",
-    video: null,
-    htmlContent: `<p>Gestão de despesas operacionais e administrativas.</p>`
-  },
-  exclusao_transferencia_financeira: {
-    title: "Exclusão de Transferência Financeira",
-    video: null,
-    htmlContent: `<p>Remoção de lançamentos de transferência indevidos.</p>`
-  },
-  faturamento_cartoes: {
-    title: "Faturamento de Cartões",
-    video: null,
-    htmlContent: `<p>Geração e conferência de faturamentos com cartões.</p>`
-  },
-  faturamento_global: {
-    title: "Faturamento Global",
-    video: null,
-    htmlContent: `<p>Resumo geral do faturamento da empresa.</p>`
-  },
-  gerar_boletos: {
-    title: "Gerar Boletos",
-    video: null,
-    htmlContent: `<p>Como gerar boletos bancários para cobrança.</p>`
-  },
-  gerar_sped_fiscal: {
-    title: "Gerar Sped Fiscal",
-    video: null,
-    htmlContent: `<p>Geração do arquivo SPED Fiscal para o Fisco.</p>`
-  },
-  instalacao_certificado_digital: {
-    title: "Instalação do Certificado Digital",
-    video: null,
-    htmlContent: `<p>Procedimento para instalar certificado A1 ou A3.</p>`
-  },
-  inutilizacao_nfce_nfe: {
-    title: "Inutilização de NFCe / NFe",
-    video: null,
-    htmlContent: `<p>Inutilização de numeração fiscal conforme legislação.</p>`
-  },
-  nota_fiscal_saida: {
-    title: "Nota Fiscal de Saída",
-    video: null,
-    htmlContent: `<p>Cadastro e emissão de NF-e ou NFC-e de saída.</p>`
-  },
-  processamento_dfe_lote: {
-    title: "Processamento DFe em Lote",
-    video: null,
-    htmlContent: `<p>Processamento em massa de documentos fiscais eletrônicos.</p>`
   }
 };
-
-
-    const contentDiv = document.getElementById('content');
-    const menuLinks = document.querySelectorAll('#menuList a[data-page]');
-
-    function loadPage(pageKey) {
-      const page = pages[pageKey];
-      if (!page) return;
-
-      contentDiv.classList.remove('welcome-screen');
-      let html = `<h2>${page.title}</h2>`;
-      html += page.htmlContent;
-
-      if (page.video) {
-        html += `<iframe src="https://www.youtube.com/embed/${page.video.trim()}" allowfullscreen></iframe>`;
-      }
-
-      contentDiv.innerHTML = html;
-    }
-
-    menuLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const pageKey = link.getAttribute('data-page');
-        loadPage(pageKey);
-      });
-    });
-
-    const toggleButton = document.getElementById('menuToggle');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('menu-hidden');
-    });
-
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const menuItems = document.querySelectorAll('#menuList li');
-
-    function filterMenu() {
-      const term = searchInput.value.toLowerCase();
-      menuItems.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(term) ? '' : 'none';
-      });
-    }
-
-    searchButton.addEventListener('click', filterMenu);
-
-    searchInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        filterMenu();
-      }
-    });
-
-    searchInput.addEventListener('input', function () {
-      if (searchInput.value.trim() === '') {
-        menuItems.forEach(item => (item.style.display = ''));
-      }
-    });
-  </script>
+const contentDiv = document.getElementById('content');
+const menuLinks = document.querySelectorAll('#menuList a[data-page]');
+function loadPage(pageKey) {
+  const page = pages[pageKey];
+  if (!page) return;
+  contentDiv.classList.remove('welcome-screen');
+  let html = `<h2>${page.title}</h2>`;
+  html += page.htmlContent;
+  if (page.video) {
+    html += `<iframe src="https://www.youtube.com/embed/${page.video.trim()}" allowfullscreen></iframe>`;
+  }
+  contentDiv.innerHTML = html;
+}
+menuLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const pageKey = link.getAttribute('data-page');
+    loadPage(pageKey);
+  });
+});
+const toggleButton = document.getElementById('menuToggle');
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('menu-hidden');
+});
+</script>
 </body>
 </html>
