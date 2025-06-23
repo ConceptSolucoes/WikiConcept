@@ -396,8 +396,59 @@
     const pages = {
   classe_cliente: {
     title: "Classe de Cliente",
-    video: null,
-    htmlContent: `<p>Instruções para cadastrar uma Classe de Cliente.</p>`
+video: null,
+htmlContent: `
+  <h2>📄 O que é a Classe de Cliente</h2>
+  <p>
+    Especifica um grupo de clientes que recebem condições diferenciadas (ex.: preços, descontos, limites) 
+    e pode ser associada diretamente aos clientes 
+    (<a href="https://wiki.adaptive.com.br/Adaptive-Business/Corporativo/Cadastros/classe-de-cliente?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">wiki.adaptive.com.br</a>).
+  </p>
+
+  <hr />
+
+  <h3>1. Criar a Classe de Cliente</h3>
+  <ol>
+    <li>No <strong>Petros Retaguarda</strong>, navegue em:<br />
+      <code>Corporativo &rarr; Cadastros &rarr; Classe de Cliente</code>
+    </li>
+    <li>Clique em <strong>+</strong> para incluir um novo registro</li>
+    <li>Na janela <strong>Classe de Cliente – [Inclusão]</strong>, preencha as abas:
+      <ul>
+        <li><strong>Classe de Cliente</strong>: defina nome, desconto, acréscimo, limite de crédito, tipo de faturamento, nível de preço</li>
+        <li><strong>Tipo de Recebimento</strong>: informe quais formas de pagamento são permitidas ao usar essa classe</li>
+        <li><strong>Condições de Venda por Item</strong>: aplique descontos/acréscimos específicos por item, nível de preço, faixas etc.</li>
+        <li><strong>Condições de Venda por Categoria</strong>: aplique condições similares por categoria</li>
+        <li><strong>Tipo de Cobrança</strong>: selecione o tipo (previamente cadastrado em <code>Financeiro &rarr; Tabelas &rarr; Tipo de Cobrança</code>) 
+          (<a href="https://wiki.adaptive.com.br/Adaptive-Business/Corporativo/Cadastros/classe-de-cliente?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">[1]</a>, 
+          <a href="https://wiki.adaptive.com.br/Adaptive-Business/Administra%C3%A7%C3%A3o/Gerenciamento/tags?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">[2]</a>, 
+          <a href="https://wiki.adaptive.com.br/pt-br/Adaptive-Business/Automa%C3%A7%C3%A3o/Cadastros/regra-de-pontuacao-vale-brinde?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">[3]</a>)
+        </li>
+      </ul>
+    </li>
+    <li>Após preencher, clique em <strong>Confirma Inclusão</strong></li>
+  </ol>
+
+  <hr />
+
+  <h3>2. Associar a Classe ao Cliente</h3>
+  <ol>
+    <li>Acesse: <code>Corporativo &rarr; Cadastros &rarr; Cliente</code></li>
+    <li>Localize um cliente existente utilizando os filtros</li>
+    <li>Clique na <strong>Ferramenta (editar)</strong> ao lado do cliente</li>
+    <li>Na janela <strong>Cliente – [Edição]</strong>, encontre o campo <strong>Classe</strong> e selecione a classe criada</li>
+    <li>Clique em <strong>Confirma Edição</strong> (<a href="https://wiki.adaptive.com.br/Adaptive-Business/Corporativo/Cadastros/classe-de-cliente?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">[1]</a>)</li>
+  </ol>
+
+  <hr />
+
+  <h3>3. Detalhes das Abas da Classe</h3>
+  <ul>
+    <li><strong>Classe de Cliente</strong>:
+      <ul>
+        <li>% Desconto/Acréscimo Padrão, Limite de Crédito, Tipo de Faturamento, Nível de Preço 
+          (<a href="https://wiki.adaptive.com.br/Adaptive-Business/Corporativo/Cadastros/classe-de-cliente?utm_source=chatgpt.com" target="_blank" rel="noopener noreferr
+
   },
   cadastro_cliente: {
     title: "Cadastro de Cliente",
